@@ -1,0 +1,111 @@
+import datetime
+from decimal import Decimal
+
+double_default = 0.0
+float_default = 0.0
+int_default = 0
+long_default = 0
+boolean_default = False
+string_default = ""
+bytes_default = b""
+decimal_default = Decimal("00")  # https://stackoverflow.com/a/12195803/8324498
+array_field_default = []
+
+records = [
+    {
+        "key": "key_1",
+        "ts": 1664573518000,
+        "level": "INFO",
+        "severity": 1,
+        "double_field": 3.141592653589793,
+        "float_field": 1.23456789,
+        "int_field": 123456789,
+        "long_field": 9876543210,
+        "boolean_field": True,
+        "string_field": "one",
+        "bytes_field": b"123456789",
+        "decimal_field": Decimal("123456789123456789.22"),
+        "nested_record": {"nested_int": 123456789, "level": "INFO"},
+        "map_field": {"key_1": "value_1", "key_2": "value_2"},
+        "array_field": ["one", "two", "three"],
+        "date_now": datetime.date(2021, 1, 1),
+        "timestamp_now": datetime.datetime.now(),
+        "string_field_for_partition": "one",
+        "date_field_for_partition": datetime.date(2021, 1, 1),
+    },
+    {
+        "key": "key_2",
+        "ts": 1664573518000,
+        "level": "INFO",
+        "severity": 1,
+        "double_field": 3.141592653589793,
+        "float_field": 1.23456789,
+        "int_field": 123456789,
+        "long_field": 9876543210,
+        "boolean_field": True,
+        "string_field": "two",
+        "bytes_field": b"123456789",
+        "decimal_field": Decimal("123456789123456789.11"),
+        "nested_record": {"nested_int": 123456789, "level": "INFO"},
+        "map_field": {"key_1": "value_1", "key_2": "value_2"},
+        "array_field": [["one"], [["two"], ["three"]], "three"],
+        "date_now": datetime.date(2021, 1, 1),
+        "timestamp_now": datetime.datetime.now(),
+        "string_field_for_partition": "one",
+        "date_field_for_partition": datetime.date(2021, 1, 2),
+    },
+    {
+        "key": "key_3",
+        "ts": 1664573518000,
+        "level": "INFO",
+        "double_field": double_default,
+        "float_field": float_default,
+        "int_field": int_default,
+        "long_field": long_default,
+        "boolean_field": boolean_default,
+        "string_field": string_default,
+        "bytes_field": bytes_default,
+        "decimal_field": decimal_default,
+        "nested_record": {"nested_int": int_default, "level": ""},
+        "map_field": {"key_1": "value_1", "key_2": {"nested_int": int_default, "level": ""}},
+        "array_field": array_field_default,
+        "string_field_for_partition": "two",
+        "date_field_for_partition": datetime.date(2021, 1, 1),
+    },
+    {
+        "key": "key_4",
+        "ts": 1664573518000,
+        "level": "ERROR",
+        "severity": 2,
+        "double_field": 3.44,
+        "float_field": 1.4,
+        "int_field": 12,
+        "long_field": 90,
+        "boolean_field": False,
+        "string_field": "four",
+        "bytes_field": b"4",
+        "decimal_field": Decimal("1.11"),
+        "array_field": [["1", ["2", ["3", "4"]]], [["5"], ["6"]], "7"],
+        "string_field_for_partition": "two",
+        "date_field_for_partition": datetime.date(2021, 1, 2),
+    },
+    {
+        "key": "key_5",
+        "ts": 1664573518000,
+        "level": "INFO",
+        "severity": 1,
+        "double_field": 3.141592653589793,
+        "float_field": 1.23456789,
+        "int_field": 123456789,
+        "long_field": 9876543210,
+        "boolean_field": True,
+        "string_field": "two",
+        "bytes_field": b"123456789",
+        "decimal_field": Decimal("345345.11"),
+        "nested_record": {"nested_int": int_default},
+        "map_field": {"key_1": "112121", "key_2": "324234523453"},
+        "array_field": array_field_default,
+        "string_field_for_partition": "two",
+        "date_field_for_partition": datetime.date(2021, 1, 1),
+    }
+]
